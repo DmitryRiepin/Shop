@@ -2,6 +2,8 @@
 
 Depot::Depot()
 {
+
+
 	//std::cout << "Depot::Depot()" << std::endl;
 }
 
