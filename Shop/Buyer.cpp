@@ -16,7 +16,7 @@ void Buyer::menuBuyer(Depot* dep)
 	std::cout << "_____Products_____\n\n";
 	for (int i = 0; i < dep->nameShop.size(); ++i)
 	{
-		std::cout << dep->nameShop[i] << '\t' << dep->quantityShop[i] << '\t' << dep->costShop[i] << "uah.\n";
+		std::cout << dep->nameShop[i] << '\t' << dep->quantityShop[i] << " רע.\t" << dep->costShop[i] << " uah.\n";
 	}
 	std::cout << std::endl;
 
