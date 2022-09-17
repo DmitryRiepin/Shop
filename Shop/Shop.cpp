@@ -2,9 +2,11 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <Windows.h>
 #include "Depot.h"
 #include "Seller.h"
 #include "Buyer.h"
+
 
 void menu(Depot* dep);
 void readF(Depot* dep, std::ifstream& read);
@@ -12,9 +14,8 @@ void saveCheng(Depot* dep);
 
 int main(int argc, char *argv[])
 {
-    setlocale(LC_ALL, "Rus");
-
-	
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
 
 	std::ifstream read;
 	
