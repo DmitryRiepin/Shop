@@ -69,7 +69,6 @@ a:
 		menu(dep);
 		break;
 	}
-
 }
 
 void readF(Depot* dep, std::ifstream& read)
@@ -124,7 +123,6 @@ void readF(Depot* dep, std::ifstream& read)
 			}
 		}
 	}
-
 }
 
 void saveCheng(Depot* dep)
@@ -143,9 +141,5 @@ void saveCheng(Depot* dep)
 	{
 		save << dep->nameShop[i] << ';' << dep->quantityShop[i] << ';' << dep->costShop[i] << std::endl;
 	}
-
-
-
 	save.close();
-
 }

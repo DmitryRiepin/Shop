@@ -68,8 +68,16 @@ void Buyer::addBuyer(Depot* dep)
 	std::cout << "Введите название: ";
 	std::cin.ignore();
 	std::getline(std::cin, name);
+d:
 	std::cout << "Введите количество: ";
 	std::cin >> quantity;
+	if (std::cin.fail())
+	{
+		std::cin.clear();
+		std::cin.ignore(32657, '\n');
+		std::cout << "Ошибка ввода!\n";
+		goto d;
+	}
 
 	bool check = false;
 	
@@ -79,31 +87,39 @@ void Buyer::addBuyer(Depot* dep)
 		{
 			for (int i = 0; i < dep->nameShop.size(); ++i)
 			{
-				if (buyer->nameShop[j] == dep->nameShop[i])
+				if (buyer->nameShop[j] == dep->nameShop[i] && dep->quantityShop[i] >= quantity)
 				{
 					buyer->quantityShop[j] += quantity;
 					dep->quantityShop[i] -= quantity;
 					buyer->costShop[i] += dep->costShop[i] * quantity;
 					check = true;
-				}				
+				}	
+				else if (buyer->nameShop[j] == dep->nameShop[i] && dep->quantityShop[i] < quantity)
+				{
+					check = true;
+					std::cout << "Неверное количество!\n"; Sleep(500); break;
+				}
 			}
 		}
-		else { std::cout << "Whots wrong!\n"; }
+		else { std::cout << "Whots wrong!\n"; Sleep(800); }
 	}
 
 	if (check == false)
 	{
 		for (int i = 0; i < dep->nameShop.size(); ++i)
-		{
-
+		{					
 			if (dep->nameShop[i] == name && dep->quantityShop[i] >= quantity)
 			{
 				buyer->nameShop.push_back(dep->nameShop[i]);
 				buyer->quantityShop.push_back(quantity);
 				dep->quantityShop[i] -= quantity;
 				buyer->costShop.push_back(dep->costShop[i] * quantity);
+				break;
 			}
-			else { std::cout << "Неверное количество!\n"; }
+			else if (dep->nameShop[i] == name && dep->quantityShop[i] < quantity)
+			{
+				std::cout << "Неверное количество!\n"; Sleep(500); break;
+			}
 		}
 	}	
 }

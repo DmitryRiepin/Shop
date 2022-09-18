@@ -1,6 +1,7 @@
 #include<iostream>
 #include<string>
 #include <vector>
+#include <Windows.h>
 #include "Depot.h"
 
 #pragma once
@@ -11,8 +12,6 @@ class Seller
 private:
 	const std::string name = "Dima";
 	const int id = 1234;
-
-
 
 public:
 	Seller() = delete;
@@ -26,9 +25,5 @@ public:
 
 	void addProduct(Depot* dep);
 	void delProduct(Depot* dep);
-
-
-	//void getProduct(Depot* dep);
-
 };
 

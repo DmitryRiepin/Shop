@@ -1,6 +1,5 @@
 #include "Seller.h"
 
-
 Seller::Seller(Depot* dep)
 {
 	std::string m_name;
@@ -15,10 +14,15 @@ Seller::Seller(Depot* dep)
 	{
 		menuSell(dep);
 	}
-	else { std::cout << "Неверный пользователь!\n"; }
+	else 
+	{ 
+		std::cout << "Неверный пользователь!\n";
+		std::cin.clear();
+		std::cin.ignore(32567, '\n');
+		system("pause");
+	}
 
 }
-
 
 Seller::~Seller()
 {
@@ -38,7 +42,7 @@ void Seller::menuSell(Depot* dep)
 {
 	system("cls");
 
-	std::cout << "_____Deport_____\n\n";
+	std::cout << "_____\tСклад:\t_____\n\n";
 	for (int i = 0; i < dep->nameShop.size(); ++i)
 	{
 		std::cout << dep->nameShop[i] << '\t' << dep->quantityShop[i] << '\t' << dep->costShop[i] << " uah.\n";
@@ -69,7 +73,6 @@ void Seller::menuSell(Depot* dep)
 	case 3:	break;
 	
 	}
-
 }
 
 void Seller::addProduct(Depot* dep)
@@ -150,11 +153,13 @@ b:
 			else
 			{
 				std::cout << "Нет столько товара!\n";
-			}		
-			
+				Sleep(500);
+			}
+							
 		}
 		
 	}
+		
 }
 
 
