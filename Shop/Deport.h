@@ -5,7 +5,7 @@
 
 
 #pragma once
-class Depot
+class Deport
 {
 public:
 	std::vector<std::string> nameShop;
@@ -14,8 +14,13 @@ public:
 	
 public:
 
-	Depot();
-	~Depot();
-		
+	Deport(); // Конструктор по умолчанию, для создания корзины покупателя.
+
+	Deport(int num); // Конструктор для создания склада.
+	
+	~Deport();
+
+	void saveChenge();
+			
 };
 

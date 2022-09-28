@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 #include <Windows.h>
-#include "Depot.h"
+#include "Deport.h"
 
 
 
@@ -11,21 +11,21 @@ class Buyer
 {
 private:
 	
-	Depot* buyer = new Depot;
+	Deport* buyer = new Deport;
 
 public:
 	Buyer() = delete;
-	Buyer(Depot* dep);
+	Buyer(Deport* dep);
 	~Buyer();
 
-	void menuBuyer(Depot* dep);
+	void menuBuyer(Deport* dep);
 
-	void addBuyer(Depot* dep);
+	void addBuyer(Deport* dep);
 	void getBuyer();
 
 	void paymant();
 
-	void returning(Depot* dep);
+	void returning(Deport* dep);
 
 };
 

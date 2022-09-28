@@ -128,13 +128,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Buyer.cpp" />
-    <ClCompile Include="Depot.cpp" />
+    <ClCompile Include="Deport.cpp" />
     <ClCompile Include="Seller.cpp" />
     <ClCompile Include="Shop.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Buyer.h" />
-    <ClInclude Include="Depot.h" />
+    <ClInclude Include="Deport.h" />
     <ClInclude Include="Seller.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

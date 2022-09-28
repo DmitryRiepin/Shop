@@ -1,6 +1,6 @@
 #include "Seller.h"
 
-Seller::Seller(Depot* dep)
+Seller::Seller(Deport* dep)
 {
 	std::string m_name;
 	int m_id;
@@ -21,7 +21,6 @@ Seller::Seller(Depot* dep)
 		std::cin.ignore(32567, '\n');
 		system("pause");
 	}
-
 }
 
 Seller::~Seller()
@@ -38,14 +37,14 @@ int Seller::getId()
 	return id;
 }
 
-void Seller::menuSell(Depot* dep)
+void Seller::menuSell(Deport* dep)
 {
 	system("cls");
 
 	std::cout << "_____\tСклад:\t_____\n\n";
 	for (int i = 0; i < dep->nameShop.size(); ++i)
 	{
-		std::cout << dep->nameShop[i] << '\t' << dep->quantityShop[i] << '\t' << dep->costShop[i] << " uah.\n";
+		std::cout << dep->nameShop[i] << '\t' << dep->quantityShop[i] << " шт." << '\t' << dep->costShop[i] << " uah.\n";
 	}
 	std::cout << std::endl;
 
@@ -53,7 +52,7 @@ void Seller::menuSell(Depot* dep)
 	std::cout << "\t\tДобрый день " << name << "!\n";
 	std::cout << "\n(1) Добавить продукты.\n" <<
 		"(2) Удалить продукты.\n" <<
-		"(3) Exit\n";
+		"(3) Выход.\n";
 	std::cin >> choice;
 	
 	switch (choice)
@@ -75,7 +74,7 @@ void Seller::menuSell(Depot* dep)
 	}
 }
 
-void Seller::addProduct(Depot* dep)
+void Seller::addProduct(Deport* dep)
 {
 	std::string name;
 	double quantity;
@@ -110,7 +109,7 @@ void Seller::addProduct(Depot* dep)
 	}
 }
 
-void Seller::delProduct(Depot* dep)
+void Seller::delProduct(Deport* dep)
 {
 	std::string name;
 	double quantity;
@@ -154,12 +153,9 @@ b:
 			{
 				std::cout << "Нет столько товара!\n";
 				Sleep(500);
-			}
-							
-		}
-		
-	}
-		
+			}							
+		}		
+	}		
 }
 
 

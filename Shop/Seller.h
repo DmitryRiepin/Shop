@@ -2,7 +2,7 @@
 #include<string>
 #include <vector>
 #include <Windows.h>
-#include "Depot.h"
+#include "Deport.h"
 
 #pragma once
 
@@ -15,15 +15,15 @@ private:
 
 public:
 	Seller() = delete;
-	Seller(Depot *dep);
+	Seller(Deport *dep);
 	~Seller();
 
 	std::string getName();
 	int getId();
 
-	void menuSell(Depot* dep);
+	void menuSell(Deport* dep);
 
-	void addProduct(Depot* dep);
-	void delProduct(Depot* dep);
+	void addProduct(Deport* dep);
+	void delProduct(Deport* dep);
 };
 

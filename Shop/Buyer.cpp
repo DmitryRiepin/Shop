@@ -1,6 +1,6 @@
 #include "Buyer.h"
 
-Buyer::Buyer(Depot* dep)
+Buyer::Buyer(Deport* dep)
 {	
 	menuBuyer(dep);	
 }
@@ -9,11 +9,12 @@ Buyer::~Buyer()
 {
 }
 
-void Buyer::menuBuyer(Depot* dep)
+void Buyer::menuBuyer(Deport* dep)
 {
+c:
 	system("cls");
 
-	std::cout << "_____Products_____\n\n";
+	std::cout << "_____ Продукты: _____\n\n";
 	for (int i = 0; i < dep->nameShop.size(); ++i)
 	{
 		std::cout << dep->nameShop[i] << '\t' << dep->quantityShop[i] << " шт.\t" << dep->costShop[i] << " uah.\n";
@@ -22,7 +23,7 @@ void Buyer::menuBuyer(Depot* dep)
 
 	getBuyer();
 	std::cout << "********************\n";
-c:
+
 	std::cout << "\t\tМеню покупателя.\n" <<
 		"(1) Добавить в карзину.\n" <<
 		"(2) Оплатить.\n" <<
@@ -31,36 +32,41 @@ c:
 	
 	int choise;
 	std::cin >> choise;
+	if (std::cin.fail() || choise > 4 || choise < 1)
+	{
+		std::cin.clear();
+		std::cin.ignore(32657, '\n');
+		std::cout << "Такого пункта нет!\n";
+		Sleep(500);
+		goto c;
+	}
 
 	switch (choise)
 	{
-	case 1:
-	{
-		addBuyer(dep);
-		menuBuyer(dep);
-		break;
-	}
-	case 2:
-	{
-		paymant();
-		break;
-	}
-	case 3:
-	{
-		returning(dep);
-		break;
-	}
-	case 4:
-	{
-		break;
-	}
-	default:
-		std::cout << "В меню нет такого пункта!\n";
-		goto c;
+		case 1:
+		{
+			addBuyer(dep);
+			menuBuyer(dep);
+			break;
+		}
+		case 2:
+		{
+			paymant();
+			break;
+		}
+		case 3:
+		{
+			returning(dep);
+			break;
+		}
+		case 4:
+		{
+			break;
+		}	
 	}
 }
 
-void Buyer::addBuyer(Depot* dep)
+void Buyer::addBuyer(Deport* dep)
 {
 	std::string name;
 	double quantity;	
@@ -71,7 +77,7 @@ void Buyer::addBuyer(Depot* dep)
 d:
 	std::cout << "Введите количество: ";
 	std::cin >> quantity;
-	if (std::cin.fail())
+	if (std::cin.fail() || quantity <= 0)
 	{
 		std::cin.clear();
 		std::cin.ignore(32657, '\n');
@@ -120,13 +126,18 @@ d:
 			{
 				std::cout << "Неверное количество!\n"; Sleep(500); break;
 			}
+			else if (i == dep->nameShop.size() - 1 && dep->nameShop[i] != name)
+			{
+				std::cout << "Нет такого названия!\n";
+				Sleep(500);
+			}
 		}
 	}	
 }
 
 void Buyer::getBuyer()
 {
-	std::cout << "____Корзина____" << std::endl;
+	std::cout << "_____ Корзина: _____" << std::endl;
 	for (int i = 0; i < buyer->nameShop.size(); ++i)
 	{
 		std::cout << buyer->nameShop[i] << '\t' << buyer->quantityShop[i] << " шт.\t" << buyer->costShop[i] << " uah.\n";
@@ -137,7 +148,7 @@ void Buyer::paymant()
 {
 	system("cls");
 	double total = 0;
-	std::cout << "\t____Ваш чек____\n" << std::endl;
+	std::cout << "\t_____ Ваш чек _____\n" << std::endl;
 	for (int i = 0; i < buyer->nameShop.size(); ++i)
 	{
 		total += buyer->costShop[i];
@@ -147,7 +158,7 @@ void Buyer::paymant()
 	system("pause");
 }
 
-void Buyer::returning(Depot* dep)
+void Buyer::returning(Deport* dep)
 {
 	std::cout << "Возвращяем на полки все из козины.\n";
 	getBuyer();

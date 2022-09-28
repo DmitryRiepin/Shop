@@ -18,7 +18,7 @@
     <ClCompile Include="Shop.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Depot.cpp">
+    <ClCompile Include="Deport.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Seller.cpp">
@@ -29,7 +29,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Depot.h">
+    <ClInclude Include="Deport.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Seller.h">
